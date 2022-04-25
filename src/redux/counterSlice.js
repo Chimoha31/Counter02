@@ -8,7 +8,7 @@ export const counterSlice = createSlice({
     value:0,
   },
   // reducerを作成したら、自動的にaction createrも生成される。
-  // increment, decrement etcを実行しますよというaction
+  // increment, decrement etcを実行しますよという”action”
   reducers: {
     increment: (state) => {
       state.value += 1;
@@ -16,5 +16,11 @@ export const counterSlice = createSlice({
     decrement: (state) => {
       state.value -= 1;
     },
+    incrementByAmount: (state, action) => {
+      state.value += action.payload;
+    }
   },
 });
+
+export const {increment, decrement, incrementByAmount} = counterSlice.actions;
+export default counterSlice.reducer;
